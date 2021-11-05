@@ -13,51 +13,50 @@ import org.joda.time.format.DateTimeFormat;
 
 public class App {
     public static void main(String[] args) {
-        Student s1 = new Student("Eoin McArdle", 21, "05/12/1999", 198181929);
-        Student s2 = new Student("John Doe", 21, "01/11/1999", 943731929);
-        Student s3 = new Student("Jane Doe", 21, "08/12/1999", 298181929);
-        Student s4 = new Student("Bob Joyce", 21, "10/12/1999", 198181929);
-        Student s5 = new Student("Jeff Brown", 21, "11/12/1999", 898181929);
+        Student s1 = new Student("Bradley Bradley", 21, "25/09/1999", 198323429);
+        Student s2 = new Student("Bradley Brown", 21, "11/01/1999", 53373123432);
+        Student s3 = new Student("Brown Bradley", 21, "01/01/1999", 1281812421);
+
         ArrayList<Student> students = new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4, s5));
 
         String formatter = "yyyy-dd-MM hh:mm:ss";
         Course course1 = new Course(
-                "CS&IT",
-                DateTime.parse("2021-01-10 12:59:59", DateTimeFormat.forPattern(formatter)),
-                DateTime.parse("2022-01-10 12:59:59", DateTimeFormat.forPattern(formatter)));
+                "CSIT",
+                DateTime.parse("2021-01-10 00:00:00", DateTimeFormat.forPattern(formatter)),
+                DateTime.parse("2022-01-10 00:00:00", DateTimeFormat.forPattern(formatter)));
         Course course2 = new Course(
-                "FM&E",
-                DateTime.parse("2021-01-10 12:59:59", DateTimeFormat.forPattern(formatter)),
-                DateTime.parse("2022-01-10 12:59:59", DateTimeFormat.forPattern(formatter)));
+                "ARTS",
+                DateTime.parse("2021-01-10 00:00:00", DateTimeFormat.forPattern(formatter)),
+                DateTime.parse("2022-01-10 00:00:00", DateTimeFormat.forPattern(formatter)));
 
         PartA.Module module1 = new PartA.Module("Software Engineering", "CT417");
         PartA.Module module2 = new PartA.Module("Machine Learning", "CT4101");
-        PartA.Module module3 = new PartA.Module("Measure Theory", "MA6749");
-        PartA.Module module4 = new PartA.Module("Economics", "E832");
 
         // Add students to modules.
         module1.setStudents(new ArrayList<Student>(Arrays.asList(s1, s2)));
         module2.setStudents(new ArrayList<Student>(Arrays.asList(s1, s2, s3)));
-        module3.setStudents(new ArrayList<Student>(Arrays.asList(s1, s4, s5)));
-        module4.setStudents(new ArrayList<Student>(Arrays.asList(s4, s5)));
+
         s1.setModules(new ArrayList<Module>(Arrays.asList(module1, module2, module3)));
         s2.setModules(new ArrayList<Module>(Arrays.asList(module1, module2)));
         s3.setModules(new ArrayList<Module>(Arrays.asList(module2)));
-        s4.setModules(new ArrayList<Module>(Arrays.asList(module3, module4)));
-        s5.setModules(new ArrayList<Module>(Arrays.asList(module3, module4)));
+
 
         // Add modules to courses.
         course1.setModules(new ArrayList<PartA.Module>(Arrays.asList(module1, module2, module3)));
+        
         course2.setModules(new ArrayList<PartA.Module>(Arrays.asList(module3, module4)));
 
         // Add students to courses.
         course1.setStudents(new ArrayList<Student>(Arrays.asList(s1, s2, s3)));
+        
         course2.setStudents(new ArrayList<Student>(Arrays.asList(s4, s5)));
+        
         s1.setCourses(new ArrayList<Course>(Arrays.asList(course1)));
+        
         s2.setCourses(new ArrayList<Course>(Arrays.asList(course1)));
+     
         s3.setCourses(new ArrayList<Course>(Arrays.asList(course1)));
-        s4.setCourses(new ArrayList<Course>(Arrays.asList(course2)));
-        s5.setCourses(new ArrayList<Course>(Arrays.asList(course2)));
+
 
         System.out.println(course1);
         System.out.println(course2);
