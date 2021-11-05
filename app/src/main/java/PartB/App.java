@@ -17,7 +17,7 @@ public class App {
         Student s2 = new Student("Bradley Brown", 21, "11/01/1999", 53373123432);
         Student s3 = new Student("Brown Bradley", 21, "01/01/1999", 1281812421);
 
-        ArrayList<Student> students = new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4, s5));
+        ArrayList<Student> students = new ArrayList<Student>(Arrays.asList(s1, s2, s3));
 
         String formatter = "yyyy-dd-MM hh:mm:ss";
         Course course1 = new Course(
